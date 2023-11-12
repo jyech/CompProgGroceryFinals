@@ -4,6 +4,8 @@
  */
 package com.app.assets;
 
+import javax.swing.ImageIcon;
+
 /**
  *
  * @author Kirin
@@ -17,6 +19,14 @@ public class CategoryPanel extends javax.swing.JPanel {
         initComponents();
         setCategoryPanelSize();
         
+    }
+
+    public void setCategoryImage(String imagePath) {
+        // Load the image from the specified path
+        ImageIcon icon = new ImageIcon(getClass().getResource(imagePath));
+        
+        // Set the image for the PictureBox
+        PictureBox.setIcon(icon);
     }
     
     public void setCategoryName(String categoryName) {

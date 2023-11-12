@@ -4,23 +4,17 @@
  */
 package com.app.sections;
 
-import com.app.main.HomePage;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import javax.swing.SwingUtilities;
-
 /**
  *
  * @author Kirin
  */
-public class ProduceSection extends javax.swing.JPanel {
+public class SeafoodSection extends javax.swing.JPanel {
 
     /**
-     * Creates new form ProduceSection
+     * Creates new form SeafoodSection
      */
-    public ProduceSection() {
+    public SeafoodSection() {
         initComponents();
-       
     }
 
     /**
@@ -36,23 +30,23 @@ public class ProduceSection extends javax.swing.JPanel {
 
         setPreferredSize(new java.awt.Dimension(1280, 720));
 
-        jLabel1.setText("ProduceSection");
+        jLabel1.setText("Seafood Section");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(272, 272, 272)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(139, Short.MAX_VALUE)
                 .addComponent(jLabel1)
-                .addContainerGap(925, Short.MAX_VALUE))
+                .addGap(176, 176, 176))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(268, Short.MAX_VALUE)
+                .addContainerGap(149, Short.MAX_VALUE)
                 .addComponent(jLabel1)
-                .addGap(436, 436, 436))
+                .addGap(135, 135, 135))
         );
     }// </editor-fold>//GEN-END:initComponents
 

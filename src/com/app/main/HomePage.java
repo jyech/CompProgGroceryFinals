@@ -4,11 +4,16 @@
  */
 package com.app.main;
 
+import com.app.sections.ProduceSection;
 import java.awt.BorderLayout;
 import java.awt.CardLayout;
 import java.awt.Component;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import javax.swing.GroupLayout;
+import javax.swing.JButton;
 import javax.swing.JPanel;
+import javax.swing.SwingUtilities;
 
 /**
  *
@@ -19,6 +24,26 @@ public class HomePage extends javax.swing.JFrame {
    
     public HomePage() {
         initComponents();
+        
+        
+        
+        
+        //BackButtons
+        
+        ActionListener backButtonListener = new ActionListener() {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            JButton sourceButton = (JButton) e.getSource();
+            System.out.println("Button Works");
+            ((HomePage) SwingUtilities.getWindowAncestor(sourceButton)).switchToCategorySection();
+        }
+     };
+
+     ProduceBackButton.addActionListener(backButtonListener);
+     BeverageBackButton.addActionListener(backButtonListener);
+     SnackBackButton.addActionListener(backButtonListener);   
+     MeatBackButton.addActionListener(backButtonListener);
+     SeafoodBackButton.addActionListener(backButtonListener);
     }
     
    
@@ -35,9 +60,23 @@ public class HomePage extends javax.swing.JFrame {
         CategoryPage = new javax.swing.JPanel();
         CategorySection = new com.app.sections.CategorySection();
         ProducePage = new javax.swing.JPanel();
-        produceSection1 = new com.app.sections.ProduceSection();
+        ProduceBackButton = new assets.coloredbutton();
+        ProduceSection = new com.app.sections.ProduceSection();
+        BeveragePage = new javax.swing.JPanel();
+        BeverageBackButton = new assets.coloredbutton();
+        BeverageSection = new com.app.sections.BeverageSection();
+        SnackPage = new javax.swing.JPanel();
+        SnackBackButton = new assets.coloredbutton();
+        SnackSection = new com.app.sections.SnackSection();
+        MeatPage = new javax.swing.JPanel();
+        MeatBackButton = new assets.coloredbutton();
+        MeatSection = new com.app.sections.MeatSection();
+        SeafoodPage = new javax.swing.JPanel();
+        SeafoodBackButton = new assets.coloredbutton();
+        SeafoodSection = new com.app.sections.SeafoodSection();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
         getContentPane().setLayout(new java.awt.CardLayout());
 
         CategoryPage.setPreferredSize(new java.awt.Dimension(1280, 720));
@@ -46,9 +85,10 @@ public class HomePage extends javax.swing.JFrame {
         CategoryPage.setLayout(CategoryPageLayout);
         CategoryPageLayout.setHorizontalGroup(
             CategoryPageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, CategoryPageLayout.createSequentialGroup()
+            .addGroup(CategoryPageLayout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(CategorySection, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(CategorySection, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         CategoryPageLayout.setVerticalGroup(
             CategoryPageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -57,24 +97,53 @@ public class HomePage extends javax.swing.JFrame {
                 .addComponent(CategorySection, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        getContentPane().add(CategoryPage, "CategoryCard");
+        getContentPane().add(CategoryPage, "card2");
 
-        javax.swing.GroupLayout ProducePageLayout = new javax.swing.GroupLayout(ProducePage);
-        ProducePage.setLayout(ProducePageLayout);
-        ProducePageLayout.setHorizontalGroup(
-            ProducePageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(ProducePageLayout.createSequentialGroup()
-                .addComponent(produceSection1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-        );
-        ProducePageLayout.setVerticalGroup(
-            ProducePageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(ProducePageLayout.createSequentialGroup()
-                .addComponent(produceSection1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-        );
+        ProducePage.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        getContentPane().add(ProducePage, "ProduceCard");
+        ProduceBackButton.setText("<-");
+        ProduceBackButton.setRadius(100);
+        ProducePage.add(ProduceBackButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 30, 50, 50));
+        ProducePage.add(ProduceSection, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+
+        getContentPane().add(ProducePage, "card3");
+
+        BeveragePage.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        BeverageBackButton.setText("<-");
+        BeverageBackButton.setRadius(100);
+        BeveragePage.add(BeverageBackButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 30, 50, 50));
+        BeveragePage.add(BeverageSection, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+
+        getContentPane().add(BeveragePage, "card4");
+
+        SnackPage.setPreferredSize(new java.awt.Dimension(1280, 720));
+        SnackPage.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        SnackBackButton.setText("<-");
+        SnackBackButton.setRadius(100);
+        SnackPage.add(SnackBackButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 30, 50, 50));
+        SnackPage.add(SnackSection, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+
+        getContentPane().add(SnackPage, "card5");
+
+        MeatPage.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        MeatBackButton.setText("<-");
+        MeatBackButton.setRadius(100);
+        MeatPage.add(MeatBackButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 30, 50, 50));
+        MeatPage.add(MeatSection, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+
+        getContentPane().add(MeatPage, "card6");
+
+        SeafoodPage.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        SeafoodBackButton.setText("<-");
+        SeafoodBackButton.setRadius(100);
+        SeafoodPage.add(SeafoodBackButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 30, 50, 50));
+        SeafoodPage.add(SeafoodSection, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+
+        getContentPane().add(SeafoodPage, "card7");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -116,18 +185,51 @@ public class HomePage extends javax.swing.JFrame {
     
     public void switchToProduceSection() {
         CardLayout cardLayout = (CardLayout) getContentPane().getLayout();
-        cardLayout.show(getContentPane(), "ProduceCard");
+        cardLayout.show(getContentPane(), "card3");
+    }
+    
+    public void switchToBeverageSection() {
+        CardLayout cardLayout = (CardLayout) getContentPane().getLayout();
+        cardLayout.show(getContentPane(), "card4");
+    }
+    
+    public void switchToSnackSection() {
+        CardLayout cardLayout = (CardLayout) getContentPane().getLayout();
+        cardLayout.show(getContentPane(), "card5");
+    }
+    
+    public void switchToMeatSection() {
+        CardLayout cardLayout = (CardLayout) getContentPane().getLayout();
+        cardLayout.show(getContentPane(), "card6");
+    }
+    
+    public void switchToSeafoodSection() {
+        CardLayout cardLayout = (CardLayout) getContentPane().getLayout();
+        cardLayout.show(getContentPane(), "card7");
     }
     
     public void switchToCategorySection() {
         CardLayout cardLayout = (CardLayout) getContentPane().getLayout();
-        cardLayout.show(getContentPane(), "CategoryCard");
+        cardLayout.show(getContentPane(), "card2");
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private assets.coloredbutton BeverageBackButton;
+    private javax.swing.JPanel BeveragePage;
+    private com.app.sections.BeverageSection BeverageSection;
     private javax.swing.JPanel CategoryPage;
     private com.app.sections.CategorySection CategorySection;
+    private assets.coloredbutton MeatBackButton;
+    private javax.swing.JPanel MeatPage;
+    private com.app.sections.MeatSection MeatSection;
+    private assets.coloredbutton ProduceBackButton;
     private javax.swing.JPanel ProducePage;
-    private com.app.sections.ProduceSection produceSection1;
+    private com.app.sections.ProduceSection ProduceSection;
+    private assets.coloredbutton SeafoodBackButton;
+    private javax.swing.JPanel SeafoodPage;
+    private com.app.sections.SeafoodSection SeafoodSection;
+    private assets.coloredbutton SnackBackButton;
+    private javax.swing.JPanel SnackPage;
+    private com.app.sections.SnackSection SnackSection;
     // End of variables declaration//GEN-END:variables
 }

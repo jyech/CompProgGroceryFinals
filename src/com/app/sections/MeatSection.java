@@ -4,23 +4,17 @@
  */
 package com.app.sections;
 
-import com.app.main.HomePage;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import javax.swing.SwingUtilities;
-
 /**
  *
  * @author Kirin
  */
-public class ProduceSection extends javax.swing.JPanel {
+public class MeatSection extends javax.swing.JPanel {
 
     /**
-     * Creates new form ProduceSection
+     * Creates new form MeatSection
      */
-    public ProduceSection() {
+    public MeatSection() {
         initComponents();
-       
     }
 
     /**
@@ -36,23 +30,23 @@ public class ProduceSection extends javax.swing.JPanel {
 
         setPreferredSize(new java.awt.Dimension(1280, 720));
 
-        jLabel1.setText("ProduceSection");
+        jLabel1.setText("Meat Section");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(272, 272, 272)
+                .addGap(171, 171, 171)
                 .addComponent(jLabel1)
-                .addContainerGap(925, Short.MAX_VALUE))
+                .addContainerGap(160, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(268, Short.MAX_VALUE)
+                .addContainerGap(145, Short.MAX_VALUE)
                 .addComponent(jLabel1)
-                .addGap(436, 436, 436))
+                .addGap(139, 139, 139))
         );
     }// </editor-fold>//GEN-END:initComponents
 

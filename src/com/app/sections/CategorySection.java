@@ -28,14 +28,54 @@ public class CategorySection extends javax.swing.JPanel {
         MeatCategory.setCategoryName("Meat");
         SeafoodCategory.setCategoryName("Seafood");
         
+        // Set images for each category
+        ProduceCategory.setCategoryImage("/com/app/images/freshproduce.jpg");
+        BeverageCategory.setCategoryImage("/com/app/images/beverages.jpg");
+        SnackCategory.setCategoryImage("/com/app/images/snacks.jpg");
+        MeatCategory.setCategoryImage("/com/app/images/meat.jpg");
+        SeafoodCategory.setCategoryImage("/com/app/images/seafood.jpg");
+        
         ProduceButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                // Call a method in NewJFrame to switch to newpanel2
+                ((HomePage) SwingUtilities.getWindowAncestor(CategorySection.this)).switchToProduceSection();
+            }
+        });
+        
+        BeverageButton.addActionListener(new ActionListener() {
         @Override
         public void actionPerformed(ActionEvent e) {
-            // Call a method in NewJFrame to switch to newpanel2
-            System.out.println("Button Works");
-            ((HomePage) SwingUtilities.getWindowAncestor(CategorySection.this)).switchToProduceSection();
-        }
-    });
+            // Call a method in HomePage to switch to BeverageCard
+            ((HomePage) SwingUtilities.getWindowAncestor(CategorySection.this)).switchToBeverageSection();
+            }
+        });
+        
+        SnackButton.addActionListener(new ActionListener() {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            // Call a method in HomePage to switch to BeverageCard
+            ((HomePage) SwingUtilities.getWindowAncestor(CategorySection.this)).switchToSnackSection();
+            }
+        });
+        
+        MeatButton.addActionListener(new ActionListener() {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            // Call a method in HomePage to switch to BeverageCard
+            ((HomePage) SwingUtilities.getWindowAncestor(CategorySection.this)).switchToMeatSection();
+            }
+        });
+
+        SeafoodButton.addActionListener(new ActionListener() {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            // Call a method in HomePage to switch to BeverageCard
+            ((HomePage) SwingUtilities.getWindowAncestor(CategorySection.this)).switchToSeafoodSection();
+            }
+        });
+
+
     }
 
     /**
@@ -48,6 +88,7 @@ public class CategorySection extends javax.swing.JPanel {
     private void initComponents() {
 
         CategorySectionBG = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
         ProducePanel = new javax.swing.JPanel();
         ProduceCategory = new com.app.assets.CategoryPanel();
         ProduceButton = new com.app.assets.CustomButton();
@@ -67,6 +108,9 @@ public class CategorySection extends javax.swing.JPanel {
         setPreferredSize(new java.awt.Dimension(1280, 720));
 
         CategorySectionBG.setBackground(new java.awt.Color(241, 242, 237));
+
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        jLabel1.setText("Browse by Category");
 
         ProducePanel.setBackground(new java.awt.Color(241, 242, 237));
 
@@ -244,11 +288,17 @@ public class CategorySection extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(SeafoodPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(27, 27, 27))
+            .addGroup(CategorySectionBGLayout.createSequentialGroup()
+                .addGap(53, 53, 53)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 434, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         CategorySectionBGLayout.setVerticalGroup(
             CategorySectionBGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(CategorySectionBGLayout.createSequentialGroup()
-                .addContainerGap(198, Short.MAX_VALUE)
+                .addGap(83, 83, 83)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 70, Short.MAX_VALUE)
                 .addGroup(CategorySectionBGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(SeafoodPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(CategorySectionBGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -256,7 +306,7 @@ public class CategorySection extends javax.swing.JPanel {
                         .addComponent(ProducePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(SnackPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(MeatPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(199, Short.MAX_VALUE))
+                .addContainerGap(183, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -289,5 +339,6 @@ public class CategorySection extends javax.swing.JPanel {
     private com.app.assets.CustomButton SnackButton;
     private com.app.assets.CategoryPanel SnackCategory;
     private javax.swing.JPanel SnackPanel;
+    private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }
