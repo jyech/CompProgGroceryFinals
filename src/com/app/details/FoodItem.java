@@ -1,4 +1,4 @@
-package com.apps.details;
+package com.app.details;
 
 import com.app.transaction.OrderManager;
 import javax.swing.ImageIcon;
@@ -22,11 +22,8 @@ public class FoodItem {
         this.orderId = OrderManager.getInstance().getOrderId();  // Get the order ID from OrderManager
     }
 
-    // Getters and setters
 
-    public String getId() {
-        return id;
-    }
+    // Getters and setters
 
     public String getOrderId() {
         return orderId;

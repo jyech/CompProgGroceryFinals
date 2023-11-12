@@ -4,14 +4,16 @@
  */
 package com.app.sections;
 
+import com.app.assets.OrderPanel;
 import com.app.main.HomePage;
-import com.apps.details.FoodStorage;
-import com.apps.details.FoodItem;
+import com.app.details.FoodStorage;
+import com.app.details.FoodItem;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Arrays;
 import java.util.List;
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.SwingUtilities;
 
 /**
@@ -39,9 +41,12 @@ public class ProduceSection extends javax.swing.JPanel {
         
     }
     
-    private void initializeUI() {
-    List<com.app.assets.OrderPanel> foodNamePanels = Arrays.asList(ApplePanel, BananaPanel, CabbagePanel, KiwiPanel, PechayPanel, PotatoPanel);
+    private void addOrderPanelToContainer(OrderPanel orderPanel) {
+    ProduceSectionBG.add(orderPanel);
+}
 
+private void initializeUI() {
+    List<com.app.assets.OrderPanel> foodNamePanels = Arrays.asList(ApplePanel, BananaPanel, CabbagePanel, KiwiPanel, PechayPanel, PotatoPanel);
     List<FoodItem> foodItems = FoodStorage.getInstance().getFoodItems();
 
     for (int i = 0; i < Math.min(foodNamePanels.size(), foodItems.size()); i++) {
@@ -51,11 +56,43 @@ public class ProduceSection extends javax.swing.JPanel {
         foodNamePan.setFoodName(foodItem.getName());
         foodNamePan.setFoodDescription(foodItem.getDescription());
         foodNamePan.setFoodPrice(foodItem.getPrice());  // Assuming getPrice() returns a double
-        foodNamePan.setOrderId(foodItem.getId());
-        //foodNamePan.setOrderImage(foodItem.getImageIcon());  // Assuming getImageIcon() returns the ImageIcon
-        ProduceSectionBG.add(foodNamePan);
+        foodNamePan.setOrderId(foodItem.getOrderId());
+        // foodNamePan.setOrderImage(foodItem.getImageIcon());  // Assuming getImageIcon() returns the ImageIcon
+
+        // Assuming CartButton is the button that triggers "Add to Cart"
+        JButton addToCartButton = foodNamePan.getCartButton();
+        addToCartButton.addActionListener(new AddToCartListener(foodItem, foodNamePan));
+
+        addOrderPanelToContainer(foodNamePan);
     }
 }
+
+
+
+
+    private class AddToCartListener implements ActionListener {
+    private FoodItem foodItem;
+    private OrderPanel orderPanel;
+
+    public AddToCartListener(FoodItem foodItem, OrderPanel orderPanel) {
+        this.foodItem = foodItem;
+        this.orderPanel = orderPanel;
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        // Get the quantity from the OrderPanel
+        int quantity = orderPanel.getQuantity();
+
+        // Update the FoodItem with the obtained quantity
+        foodItem.setUserQuantity(quantity);
+
+        // Add the FoodItem to the cart
+        HomePage homePage = (HomePage) SwingUtilities.getWindowAncestor(ProduceSection.this);
+        homePage.addItemToCart(foodItem);
+    }
+}
+
 
 
     /**

@@ -1,12 +1,5 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
-package com.apps.details;
-/**
- *
- * @author Kirin
- */
+package com.app.details;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -31,5 +24,15 @@ public class FoodStorage {
 
     public List<FoodItem> getFoodItems() {
         return new ArrayList<>(foodItems);
+    }
+
+    // Add this method to find FoodItem by orderId
+    public FoodItem getFoodItemByOrderId(String orderId) {
+        for (FoodItem foodItem : foodItems) {
+            if (foodItem.getOrderId().equals(orderId)) {
+                return foodItem;
+            }
+        }
+        return null; // Return null if no matching FoodItem is found
     }
 }

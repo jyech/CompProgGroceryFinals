@@ -4,17 +4,15 @@
  */
 package com.app.transaction;
 
-/**
- *
- * @author Kirin
- */
 public class OrderManager {
 
     private static OrderManager instance;
-    private String orderId;
+    private int nextOrderId;
 
     private OrderManager() {
         // private constructor to enforce singleton pattern
+        // Initialize the order ID to 1
+        this.nextOrderId = 1;
     }
 
     public static OrderManager getInstance() {
@@ -25,11 +23,9 @@ public class OrderManager {
     }
 
     public String getOrderId() {
-        return orderId;
-    }
-
-    public void setOrderId(String orderId) {
-        this.orderId = orderId;
+        // Return the current order ID and then increment for the next one
+        return String.valueOf(nextOrderId++);
     }
 }
+
 

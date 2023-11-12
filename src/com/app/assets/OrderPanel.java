@@ -4,9 +4,14 @@
  */
 package com.app.assets;
 
+import com.app.details.FoodItem;
+import com.app.transaction.CartSection;
+import com.app.transaction.OrderPanelListener;
 import java.awt.Color;
 import java.awt.Image;
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JLabel;
 
 /**
  *
@@ -19,13 +24,73 @@ public class OrderPanel extends javax.swing.JPanel {
     ImageIcon originalIcon;
     ImageIcon scaledIcon;
 
+    private OrderPanelListener orderPanelListener;
+    private CartSection cartSection;  // Reference to the CartSection
+    private int quantity;
     /**
      * Creates new form OrderPanel
      */
     public OrderPanel() {
         initComponents();
+        
     }
 
+    public JButton getCartButton() {
+    return CartButton;
+}
+    /**
+     * Set the listener for the OrderPanel.
+     * 
+     * @param listener The listener to set.
+     */
+    public void setOrderPanelListener(OrderPanelListener listener) {
+        this.orderPanelListener = listener;
+    }
+
+    /**
+     * Set the CartSection for this OrderPanel.
+     * 
+     * @param cartSection The CartSection to set.
+     */
+    public void setCartSection(CartSection cartSection) {
+        this.cartSection = cartSection;
+    }
+
+    /**
+     * Handles the CartButton action performed event.
+     * Triggers the addition of the current item to the shopping cart.
+     * 
+     * @param evt The action event.
+     */
+    private void CartButtonActionPerformed(java.awt.event.ActionEvent evt) {
+    if (orderPanelListener != null) {
+        orderPanelListener.onAddToCart(orderId);
+
+        // Create a FoodItem instance from the OrderPanel and add it to the CartSection
+        if (cartSection != null) {
+            FoodItem foodItem = new FoodItem(orderId, FoodName.getText(),
+                    (ImageIcon) OrderImage.getIcon(),
+                    Double.parseDouble(FoodPrice.getText().replace("PHP ", "")),
+                    FoodDescription.getText());
+
+            // Set the quantity based on the displayed value in the Quantity label
+            foodItem.setUserQuantity(Integer.parseInt(Quantity.getText()));
+
+            cartSection.addItemToCart(foodItem);
+        }
+    }
+}
+
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
+        Quantity.setText(String.valueOf(quantity));
+    }
+
+    public int getQuantity() {
+        return Integer.parseInt(Quantity.getText());
+    }
+    
     // Add this method to set the order ID
     public void setOrderId(String orderId) {
         this.orderId = orderId;
@@ -182,7 +247,7 @@ public class OrderPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void plusButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_plusButtonActionPerformed
-        int currentQuantity = Integer.parseInt(Quantity.getText());
+        int currentQuantity = getQuantity();
         if (currentQuantity < 99) {
             // Increase quantity
             Quantity.setText(String.valueOf(currentQuantity + 1));
@@ -190,7 +255,7 @@ public class OrderPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_plusButtonActionPerformed
 
     private void MinusButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MinusButtonActionPerformed
-        int currentQuantity = Integer.parseInt(Quantity.getText());
+        int currentQuantity = getQuantity();
         if (currentQuantity > 1) {
             // Decrease quantity
             Quantity.setText(String.valueOf(currentQuantity - 1));
