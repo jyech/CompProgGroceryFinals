@@ -28,7 +28,7 @@ public class SnackSection extends javax.swing.JPanel {
 
         jLabel1 = new javax.swing.JLabel();
 
-        setPreferredSize(new java.awt.Dimension(1280, 720));
+        setPreferredSize(new java.awt.Dimension(1600, 900));
 
         jLabel1.setText("SnackSection");
 

@@ -20,7 +20,38 @@ public class ProduceSection extends javax.swing.JPanel {
      */
     public ProduceSection() {
         initComponents();
-       
+        ApplePanel.setFoodName("Apple");
+        BananaPanel.setFoodName("Banana");
+        CabbagePanel.setFoodName("Cabbage");
+        KiwiPanel.setFoodName("Kiwi");
+        PechayPanel.setFoodName("Pechay");
+        PotatoPanel.setFoodName("Potato");
+        
+        /*
+            
+        ApplePanel.setFoodDescription("Apple");
+        BananaPanel.setFoodDescription("Banana");
+        CabbagePanel.setFoodDescription("Cabbage");
+        KiwiPanel.setFoodDescription("Kiwi");
+        PechayPanel.setFoodDescription("Pechay");
+        PotatoPanel.setFoodDescription("Potato");
+        
+        ApplePanel.setFoodPrice("Apple");
+        BananaPanel.setFoodPrice("Banana");
+        CabbagePanel.setFoodPrice("Cabbage");
+        KiwiPanel.setFoodPrice("Kiwi");
+        PechayPanel.setFoodPrice("Pechay");
+        PotatoPanel.setFoodPrice("Potato");
+        
+        ApplePanel.setCategoryImage("/com/app/images/image.jpg");
+        BananaPanel.setCategoryImage("/com/app/images/image.jpg");
+        CabbagePanel.setCategoryImage("/com/app/images/image.jpg");
+        KiwiPanel.setCategoryImage("/com/app/images/image.jpg");
+        PechayPanel.setCategoryImage("/com/app/images/image.jpg");
+        PotatoPanel.setCategoryImage("/com/app/images/image.jpg");
+        
+        */
+        
     }
 
     /**
@@ -32,32 +63,88 @@ public class ProduceSection extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
+        ProduceSectionBG = new javax.swing.JPanel();
+        FreshProduceLabel = new javax.swing.JLabel();
+        ApplePanel = new com.app.assets.OrderPanel();
+        BananaPanel = new com.app.assets.OrderPanel();
+        KiwiPanel = new com.app.assets.OrderPanel();
+        CabbagePanel = new com.app.assets.OrderPanel();
+        PotatoPanel = new com.app.assets.OrderPanel();
+        PechayPanel = new com.app.assets.OrderPanel();
 
-        setPreferredSize(new java.awt.Dimension(1280, 720));
+        setPreferredSize(new java.awt.Dimension(1600, 900));
 
-        jLabel1.setText("ProduceSection");
+        ProduceSectionBG.setBackground(new java.awt.Color(241, 242, 237));
+
+        FreshProduceLabel.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        FreshProduceLabel.setText("Fresh Produce");
+
+        javax.swing.GroupLayout ProduceSectionBGLayout = new javax.swing.GroupLayout(ProduceSectionBG);
+        ProduceSectionBG.setLayout(ProduceSectionBGLayout);
+        ProduceSectionBGLayout.setHorizontalGroup(
+            ProduceSectionBGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(ProduceSectionBGLayout.createSequentialGroup()
+                .addGap(90, 90, 90)
+                .addGroup(ProduceSectionBGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(ProduceSectionBGLayout.createSequentialGroup()
+                        .addComponent(FreshProduceLabel)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(ProduceSectionBGLayout.createSequentialGroup()
+                        .addGroup(ProduceSectionBGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(ApplePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(CabbagePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 95, Short.MAX_VALUE)
+                        .addGroup(ProduceSectionBGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(ProduceSectionBGLayout.createSequentialGroup()
+                                .addComponent(PotatoPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 95, Short.MAX_VALUE)
+                                .addComponent(PechayPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(ProduceSectionBGLayout.createSequentialGroup()
+                                .addComponent(BananaPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 95, Short.MAX_VALUE)
+                                .addComponent(KiwiPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(90, 90, 90))))
+        );
+        ProduceSectionBGLayout.setVerticalGroup(
+            ProduceSectionBGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(ProduceSectionBGLayout.createSequentialGroup()
+                .addGap(68, 68, 68)
+                .addGroup(ProduceSectionBGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(ProduceSectionBGLayout.createSequentialGroup()
+                        .addComponent(FreshProduceLabel)
+                        .addGap(40, 40, 40)
+                        .addComponent(ApplePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(KiwiPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(BananaPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(58, 58, 58)
+                .addGroup(ProduceSectionBGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(CabbagePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(PotatoPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(PechayPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(126, Short.MAX_VALUE))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(272, 272, 272)
-                .addComponent(jLabel1)
-                .addContainerGap(925, Short.MAX_VALUE))
+            .addComponent(ProduceSectionBG, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(268, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addGap(436, 436, 436))
+            .addComponent(ProduceSectionBG, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
+    private com.app.assets.OrderPanel ApplePanel;
+    private com.app.assets.OrderPanel BananaPanel;
+    private com.app.assets.OrderPanel CabbagePanel;
+    private javax.swing.JLabel FreshProduceLabel;
+    private com.app.assets.OrderPanel KiwiPanel;
+    private com.app.assets.OrderPanel PechayPanel;
+    private com.app.assets.OrderPanel PotatoPanel;
+    private javax.swing.JPanel ProduceSectionBG;
     // End of variables declaration//GEN-END:variables
 }

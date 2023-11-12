@@ -60,19 +60,19 @@ public class HomePage extends javax.swing.JFrame {
         CategoryPage = new javax.swing.JPanel();
         CategorySection = new com.app.sections.CategorySection();
         ProducePage = new javax.swing.JPanel();
-        ProduceBackButton = new assets.coloredbutton();
+        ProduceBackButton = new com.app.assets.ColoredButton();
         ProduceSection = new com.app.sections.ProduceSection();
         BeveragePage = new javax.swing.JPanel();
-        BeverageBackButton = new assets.coloredbutton();
+        BeverageBackButton = new com.app.assets.ColoredButton();
         BeverageSection = new com.app.sections.BeverageSection();
         SnackPage = new javax.swing.JPanel();
-        SnackBackButton = new assets.coloredbutton();
+        SnackBackButton = new com.app.assets.ColoredButton();
         SnackSection = new com.app.sections.SnackSection();
         MeatPage = new javax.swing.JPanel();
-        MeatBackButton = new assets.coloredbutton();
+        MeatBackButton = new com.app.assets.ColoredButton();
         MeatSection = new com.app.sections.MeatSection();
         SeafoodPage = new javax.swing.JPanel();
-        SeafoodBackButton = new assets.coloredbutton();
+        SeafoodBackButton = new com.app.assets.ColoredButton();
         SeafoodSection = new com.app.sections.SeafoodSection();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -81,20 +81,18 @@ public class HomePage extends javax.swing.JFrame {
 
         CategoryPage.setPreferredSize(new java.awt.Dimension(1280, 720));
 
+        CategorySection.setMaximumSize(new java.awt.Dimension(1600, 900));
+        CategorySection.setMinimumSize(new java.awt.Dimension(1600, 900));
+
         javax.swing.GroupLayout CategoryPageLayout = new javax.swing.GroupLayout(CategoryPage);
         CategoryPage.setLayout(CategoryPageLayout);
         CategoryPageLayout.setHorizontalGroup(
             CategoryPageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(CategoryPageLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(CategorySection, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(CategorySection, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         CategoryPageLayout.setVerticalGroup(
             CategoryPageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, CategoryPageLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(CategorySection, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addComponent(CategorySection, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         getContentPane().add(CategoryPage, "card2");
@@ -102,8 +100,9 @@ public class HomePage extends javax.swing.JFrame {
         ProducePage.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         ProduceBackButton.setText("<-");
+        ProduceBackButton.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         ProduceBackButton.setRadius(100);
-        ProducePage.add(ProduceBackButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 30, 50, 50));
+        ProducePage.add(ProduceBackButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 50, 50));
         ProducePage.add(ProduceSection, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         getContentPane().add(ProducePage, "card3");
@@ -214,21 +213,21 @@ public class HomePage extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private assets.coloredbutton BeverageBackButton;
+    private com.app.assets.ColoredButton BeverageBackButton;
     private javax.swing.JPanel BeveragePage;
     private com.app.sections.BeverageSection BeverageSection;
     private javax.swing.JPanel CategoryPage;
     private com.app.sections.CategorySection CategorySection;
-    private assets.coloredbutton MeatBackButton;
+    private com.app.assets.ColoredButton MeatBackButton;
     private javax.swing.JPanel MeatPage;
     private com.app.sections.MeatSection MeatSection;
-    private assets.coloredbutton ProduceBackButton;
+    private com.app.assets.ColoredButton ProduceBackButton;
     private javax.swing.JPanel ProducePage;
     private com.app.sections.ProduceSection ProduceSection;
-    private assets.coloredbutton SeafoodBackButton;
+    private com.app.assets.ColoredButton SeafoodBackButton;
     private javax.swing.JPanel SeafoodPage;
     private com.app.sections.SeafoodSection SeafoodSection;
-    private assets.coloredbutton SnackBackButton;
+    private com.app.assets.ColoredButton SnackBackButton;
     private javax.swing.JPanel SnackPage;
     private com.app.sections.SnackSection SnackSection;
     // End of variables declaration//GEN-END:variables
