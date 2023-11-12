@@ -13,10 +13,11 @@ import javax.swing.ImageIcon;
  * @author Kirin
  */
 public class OrderPanel extends javax.swing.JPanel {
-    
-   ImageIcon originalIcon;
-   ImageIcon scaledIcon;
 
+    private String orderId;  // Declare the orderId field
+
+    ImageIcon originalIcon;
+    ImageIcon scaledIcon;
 
     /**
      * Creates new form OrderPanel
@@ -24,13 +25,15 @@ public class OrderPanel extends javax.swing.JPanel {
     public OrderPanel() {
         initComponents();
     }
-    
-    public void setOrderImage(String imagePath) {
-        // Load the image from the specified path
-        ImageIcon icon = new ImageIcon(getClass().getResource(imagePath));
-        
+
+    // Add this method to set the order ID
+    public void setOrderId(String orderId) {
+        this.orderId = orderId;
+    }
+   
+    public void setOrderImage(ImageIcon imageIcon) {
         // Set the image for the PictureBox
-        OrderImage.setIcon(icon);
+        OrderImage.setIcon(imageIcon);
     }
     
     public void setFoodName(String foodName) {
@@ -41,8 +44,10 @@ public class OrderPanel extends javax.swing.JPanel {
         FoodDescription.setText(foodDescription);
     }
     
-    public void setFoodPrice(String foodPrice) {
-        FoodPrice.setText(foodPrice);
+    public void setFoodPrice(double foodPrice) {
+        // Convert the double value to a formatted string if needed
+        String formattedPrice = String.format("%.2f", foodPrice);
+        FoodPrice.setText(formattedPrice);
     }
 
     /**

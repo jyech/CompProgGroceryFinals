@@ -5,8 +5,13 @@
 package com.app.sections;
 
 import com.app.main.HomePage;
+import com.apps.details.FoodStorage;
+import com.apps.details.FoodItem;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Arrays;
+import java.util.List;
+import javax.swing.ImageIcon;
 import javax.swing.SwingUtilities;
 
 /**
@@ -20,39 +25,38 @@ public class ProduceSection extends javax.swing.JPanel {
      */
     public ProduceSection() {
         initComponents();
-        ApplePanel.setFoodName("Apple");
-        BananaPanel.setFoodName("Banana");
-        CabbagePanel.setFoodName("Cabbage");
-        KiwiPanel.setFoodName("Kiwi");
-        PechayPanel.setFoodName("Pechay");
-        PotatoPanel.setFoodName("Potato");
         
-        /*
-            
-        ApplePanel.setFoodDescription("Apple");
-        BananaPanel.setFoodDescription("Banana");
-        CabbagePanel.setFoodDescription("Cabbage");
-        KiwiPanel.setFoodDescription("Kiwi");
-        PechayPanel.setFoodDescription("Pechay");
-        PotatoPanel.setFoodDescription("Potato");
+        FoodStorage.getInstance().addFoodItem(new FoodItem("1", "Apple", new ImageIcon("/com/app/images/apple.png"), 20.0, "Apple Description"));
+        FoodStorage.getInstance().addFoodItem(new FoodItem("2", "Banana", new ImageIcon("/com/app/images/banana.png"), 10.50, "Banana Description"));
+        FoodStorage.getInstance().addFoodItem(new FoodItem("3", "Cabbage", new ImageIcon("/com/app/images/banana.png"), 36.50, "Cabbage Description"));
+        FoodStorage.getInstance().addFoodItem(new FoodItem("4", "Kiwi", new ImageIcon("/com/app/images/banana.png"), 67.50, "Kiwi Description"));
+        FoodStorage.getInstance().addFoodItem(new FoodItem("5", "Pechay", new ImageIcon("/com/app/images/banana.png"), 34.50, "Pechay Description"));
+        FoodStorage.getInstance().addFoodItem(new FoodItem("6", "Potato", new ImageIcon("/com/app/images/banana.png"), 25.50, "Potato Description"));
+        // Add more food items as needed
         
-        ApplePanel.setFoodPrice("Apple");
-        BananaPanel.setFoodPrice("Banana");
-        CabbagePanel.setFoodPrice("Cabbage");
-        KiwiPanel.setFoodPrice("Kiwi");
-        PechayPanel.setFoodPrice("Pechay");
-        PotatoPanel.setFoodPrice("Potato");
-        
-        ApplePanel.setCategoryImage("/com/app/images/image.jpg");
-        BananaPanel.setCategoryImage("/com/app/images/image.jpg");
-        CabbagePanel.setCategoryImage("/com/app/images/image.jpg");
-        KiwiPanel.setCategoryImage("/com/app/images/image.jpg");
-        PechayPanel.setCategoryImage("/com/app/images/image.jpg");
-        PotatoPanel.setCategoryImage("/com/app/images/image.jpg");
-        
-        */
+        // Initialize UI components based on the food items in FoodStorage
+        initializeUI();
         
     }
+    
+    private void initializeUI() {
+    List<com.app.assets.OrderPanel> foodNamePanels = Arrays.asList(ApplePanel, BananaPanel, CabbagePanel, KiwiPanel, PechayPanel, PotatoPanel);
+
+    List<FoodItem> foodItems = FoodStorage.getInstance().getFoodItems();
+
+    for (int i = 0; i < Math.min(foodNamePanels.size(), foodItems.size()); i++) {
+        com.app.assets.OrderPanel foodNamePan = foodNamePanels.get(i);
+        FoodItem foodItem = foodItems.get(i);
+
+        foodNamePan.setFoodName(foodItem.getName());
+        foodNamePan.setFoodDescription(foodItem.getDescription());
+        foodNamePan.setFoodPrice(foodItem.getPrice());  // Assuming getPrice() returns a double
+        foodNamePan.setOrderId(foodItem.getId());
+        //foodNamePan.setOrderImage(foodItem.getImageIcon());  // Assuming getImageIcon() returns the ImageIcon
+        ProduceSectionBG.add(foodNamePan);
+    }
+}
+
 
     /**
      * This method is called from within the constructor to initialize the form.
