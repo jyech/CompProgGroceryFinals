@@ -4,7 +4,12 @@
  */
 package com.app.sections;
 
+import com.app.assets.CategoryPanel;
+import com.app.main.HomePage;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import javax.swing.ImageIcon;
+import javax.swing.SwingUtilities;
 
 /**
  *
@@ -17,7 +22,20 @@ public class CategorySection extends javax.swing.JPanel {
      */
     public CategorySection() {
         initComponents();
-        ProduceButton.setIcon(new ImageIcon("com/app/images/freshproduce.jpg"));
+        ProduceCategory.setCategoryName("Fresh Produce");
+        BeverageCategory.setCategoryName("Beverages");
+        SnackCategory.setCategoryName("Snacks");
+        MeatCategory.setCategoryName("Meat");
+        SeafoodCategory.setCategoryName("Seafood");
+        
+        ProduceButton.addActionListener(new ActionListener() {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            // Call a method in NewJFrame to switch to newpanel2
+            System.out.println("Button Works");
+            ((HomePage) SwingUtilities.getWindowAncestor(CategorySection.this)).switchToProduceSection();
+        }
+    });
     }
 
     /**
@@ -30,43 +48,183 @@ public class CategorySection extends javax.swing.JPanel {
     private void initComponents() {
 
         CategorySectionBG = new javax.swing.JPanel();
-        jPanel1 = new javax.swing.JPanel();
-        categoryPanel1 = new com.app.assets.CategoryPanel();
+        ProducePanel = new javax.swing.JPanel();
+        ProduceCategory = new com.app.assets.CategoryPanel();
         ProduceButton = new com.app.assets.CustomButton();
+        BeveragePanel = new javax.swing.JPanel();
+        BeverageCategory = new com.app.assets.CategoryPanel();
+        BeverageButton = new com.app.assets.CustomButton();
+        SnackPanel = new javax.swing.JPanel();
+        SnackCategory = new com.app.assets.CategoryPanel();
+        SnackButton = new com.app.assets.CustomButton();
+        MeatPanel = new javax.swing.JPanel();
+        MeatCategory = new com.app.assets.CategoryPanel();
+        MeatButton = new com.app.assets.CustomButton();
+        SeafoodPanel = new javax.swing.JPanel();
+        SeafoodCategory = new com.app.assets.CategoryPanel();
+        SeafoodButton = new com.app.assets.CustomButton();
 
         setPreferredSize(new java.awt.Dimension(1280, 720));
 
         CategorySectionBG.setBackground(new java.awt.Color(241, 242, 237));
 
-        jPanel1.setBackground(new java.awt.Color(241, 242, 237));
+        ProducePanel.setBackground(new java.awt.Color(241, 242, 237));
 
         ProduceButton.setText("Fresh Produce");
         ProduceButton.setPreferredSize(new java.awt.Dimension(220, 320));
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        javax.swing.GroupLayout ProducePanelLayout = new javax.swing.GroupLayout(ProducePanel);
+        ProducePanel.setLayout(ProducePanelLayout);
+        ProducePanelLayout.setHorizontalGroup(
+            ProducePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(ProducePanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(ProduceButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 6, Short.MAX_VALUE))
-            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel1Layout.createSequentialGroup()
+            .addGroup(ProducePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(ProducePanelLayout.createSequentialGroup()
                     .addContainerGap()
-                    .addComponent(categoryPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ProduceCategory, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+        ProducePanelLayout.setVerticalGroup(
+            ProducePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ProducePanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(ProduceButton, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                .addComponent(ProduceButton, javax.swing.GroupLayout.DEFAULT_SIZE, 311, Short.MAX_VALUE)
                 .addContainerGap())
-            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel1Layout.createSequentialGroup()
+            .addGroup(ProducePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(ProducePanelLayout.createSequentialGroup()
                     .addContainerGap()
-                    .addComponent(categoryPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ProduceCategory, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+        );
+
+        BeveragePanel.setBackground(new java.awt.Color(241, 242, 237));
+
+        BeverageButton.setText("Fresh Produce");
+        BeverageButton.setPreferredSize(new java.awt.Dimension(220, 320));
+
+        javax.swing.GroupLayout BeveragePanelLayout = new javax.swing.GroupLayout(BeveragePanel);
+        BeveragePanel.setLayout(BeveragePanelLayout);
+        BeveragePanelLayout.setHorizontalGroup(
+            BeveragePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(BeveragePanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(BeverageButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 6, Short.MAX_VALUE))
+            .addGroup(BeveragePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(BeveragePanelLayout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(BeverageCategory, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+        );
+        BeveragePanelLayout.setVerticalGroup(
+            BeveragePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, BeveragePanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(BeverageButton, javax.swing.GroupLayout.DEFAULT_SIZE, 311, Short.MAX_VALUE)
+                .addContainerGap())
+            .addGroup(BeveragePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(BeveragePanelLayout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(BeverageCategory, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+        );
+
+        SnackPanel.setBackground(new java.awt.Color(241, 242, 237));
+
+        SnackButton.setText("Fresh Produce");
+        SnackButton.setPreferredSize(new java.awt.Dimension(220, 320));
+
+        javax.swing.GroupLayout SnackPanelLayout = new javax.swing.GroupLayout(SnackPanel);
+        SnackPanel.setLayout(SnackPanelLayout);
+        SnackPanelLayout.setHorizontalGroup(
+            SnackPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(SnackPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(SnackButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 6, Short.MAX_VALUE))
+            .addGroup(SnackPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(SnackPanelLayout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(SnackCategory, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+        );
+        SnackPanelLayout.setVerticalGroup(
+            SnackPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, SnackPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(SnackButton, javax.swing.GroupLayout.DEFAULT_SIZE, 311, Short.MAX_VALUE)
+                .addContainerGap())
+            .addGroup(SnackPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(SnackPanelLayout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(SnackCategory, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+        );
+
+        MeatPanel.setBackground(new java.awt.Color(241, 242, 237));
+
+        MeatButton.setText("Fresh Produce");
+        MeatButton.setPreferredSize(new java.awt.Dimension(220, 320));
+
+        javax.swing.GroupLayout MeatPanelLayout = new javax.swing.GroupLayout(MeatPanel);
+        MeatPanel.setLayout(MeatPanelLayout);
+        MeatPanelLayout.setHorizontalGroup(
+            MeatPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(MeatPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(MeatButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 6, Short.MAX_VALUE))
+            .addGroup(MeatPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(MeatPanelLayout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(MeatCategory, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+        );
+        MeatPanelLayout.setVerticalGroup(
+            MeatPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, MeatPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(MeatButton, javax.swing.GroupLayout.DEFAULT_SIZE, 311, Short.MAX_VALUE)
+                .addContainerGap())
+            .addGroup(MeatPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(MeatPanelLayout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(MeatCategory, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+        );
+
+        SeafoodPanel.setBackground(new java.awt.Color(241, 242, 237));
+
+        SeafoodButton.setText("Fresh Produce");
+        SeafoodButton.setPreferredSize(new java.awt.Dimension(220, 320));
+
+        javax.swing.GroupLayout SeafoodPanelLayout = new javax.swing.GroupLayout(SeafoodPanel);
+        SeafoodPanel.setLayout(SeafoodPanelLayout);
+        SeafoodPanelLayout.setHorizontalGroup(
+            SeafoodPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(SeafoodPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(SeafoodButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 6, Short.MAX_VALUE))
+            .addGroup(SeafoodPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(SeafoodPanelLayout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(SeafoodCategory, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+        );
+        SeafoodPanelLayout.setVerticalGroup(
+            SeafoodPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, SeafoodPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(SeafoodButton, javax.swing.GroupLayout.DEFAULT_SIZE, 311, Short.MAX_VALUE)
+                .addContainerGap())
+            .addGroup(SeafoodPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(SeafoodPanelLayout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(SeafoodCategory, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
 
@@ -74,17 +232,31 @@ public class CategorySection extends javax.swing.JPanel {
         CategorySectionBG.setLayout(CategorySectionBGLayout);
         CategorySectionBGLayout.setHorizontalGroup(
             CategorySectionBGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(CategorySectionBGLayout.createSequentialGroup()
-                .addGap(94, 94, 94)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(954, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, CategorySectionBGLayout.createSequentialGroup()
+                .addContainerGap(45, Short.MAX_VALUE)
+                .addComponent(ProducePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(BeveragePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(12, 12, 12)
+                .addComponent(SnackPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(MeatPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(SeafoodPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(27, 27, 27))
         );
         CategorySectionBGLayout.setVerticalGroup(
             CategorySectionBGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(CategorySectionBGLayout.createSequentialGroup()
-                .addGap(200, 200, 200)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(200, Short.MAX_VALUE))
+                .addContainerGap(198, Short.MAX_VALUE)
+                .addGroup(CategorySectionBGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(SeafoodPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(CategorySectionBGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(BeveragePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(ProducePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(SnackPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(MeatPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(199, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -101,9 +273,21 @@ public class CategorySection extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private com.app.assets.CustomButton BeverageButton;
+    private com.app.assets.CategoryPanel BeverageCategory;
+    private javax.swing.JPanel BeveragePanel;
     private javax.swing.JPanel CategorySectionBG;
+    private com.app.assets.CustomButton MeatButton;
+    private com.app.assets.CategoryPanel MeatCategory;
+    private javax.swing.JPanel MeatPanel;
     private com.app.assets.CustomButton ProduceButton;
-    private com.app.assets.CategoryPanel categoryPanel1;
-    private javax.swing.JPanel jPanel1;
+    private com.app.assets.CategoryPanel ProduceCategory;
+    private javax.swing.JPanel ProducePanel;
+    private com.app.assets.CustomButton SeafoodButton;
+    private com.app.assets.CategoryPanel SeafoodCategory;
+    private javax.swing.JPanel SeafoodPanel;
+    private com.app.assets.CustomButton SnackButton;
+    private com.app.assets.CategoryPanel SnackCategory;
+    private javax.swing.JPanel SnackPanel;
     // End of variables declaration//GEN-END:variables
 }

@@ -35,6 +35,7 @@ public class HomePage extends javax.swing.JFrame {
         CategoryPage = new javax.swing.JPanel();
         CategorySection = new com.app.sections.CategorySection();
         ProducePage = new javax.swing.JPanel();
+        produceSection1 = new com.app.sections.ProduceSection();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new java.awt.CardLayout());
@@ -56,20 +57,24 @@ public class HomePage extends javax.swing.JFrame {
                 .addComponent(CategorySection, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        getContentPane().add(CategoryPage, "card2");
+        getContentPane().add(CategoryPage, "CategoryCard");
 
         javax.swing.GroupLayout ProducePageLayout = new javax.swing.GroupLayout(ProducePage);
         ProducePage.setLayout(ProducePageLayout);
         ProducePageLayout.setHorizontalGroup(
             ProducePageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1280, Short.MAX_VALUE)
+            .addGroup(ProducePageLayout.createSequentialGroup()
+                .addComponent(produceSection1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         ProducePageLayout.setVerticalGroup(
             ProducePageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 720, Short.MAX_VALUE)
+            .addGroup(ProducePageLayout.createSequentialGroup()
+                .addComponent(produceSection1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
-        getContentPane().add(ProducePage, "card3");
+        getContentPane().add(ProducePage, "ProduceCard");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -108,10 +113,21 @@ public class HomePage extends javax.swing.JFrame {
             }
         });
     }
+    
+    public void switchToProduceSection() {
+        CardLayout cardLayout = (CardLayout) getContentPane().getLayout();
+        cardLayout.show(getContentPane(), "ProduceCard");
+    }
+    
+    public void switchToCategorySection() {
+        CardLayout cardLayout = (CardLayout) getContentPane().getLayout();
+        cardLayout.show(getContentPane(), "CategoryCard");
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel CategoryPage;
     private com.app.sections.CategorySection CategorySection;
     private javax.swing.JPanel ProducePage;
+    private com.app.sections.ProduceSection produceSection1;
     // End of variables declaration//GEN-END:variables
 }
