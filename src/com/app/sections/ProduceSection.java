@@ -75,12 +75,6 @@ private void initializeUI() {
     }
 }
 
-
-
-
-
-
-
     private class AddToCartListener implements ActionListener {
     private FoodItem foodItem;
     private OrderPanel orderPanel;
@@ -103,8 +97,8 @@ private void initializeUI() {
         homePage.addItemToCart(foodItem);
 
         // Print a message to confirm that the item has been added
-        System.out.println("Item added to cart: " + foodItem.getName());
-        cartSection.displayCartItems();
+        //System.out.println("Item added to cart: " + foodItem.getName());
+        //cartSection.displayCartItems();
     }
 }
 

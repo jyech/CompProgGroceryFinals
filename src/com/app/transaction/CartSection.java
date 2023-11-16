@@ -4,44 +4,70 @@
  */
 package com.app.transaction;
 
-import com.app.assets.OrderPanel;
 import com.app.details.FoodItem;
-import com.app.details.FoodStorage;
 import java.awt.FlowLayout;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.util.ArrayList;
 import java.util.List;
-import javax.swing.JButton;
+import javax.swing.JPanel;
+import com.app.assets.CartOrderPanel;
+import javax.swing.SwingUtilities;
 import javax.swing.JLabel;
+import javax.swing.BoxLayout;
+
+
 
 /**
- *
+ * CartSection to display items in the shopping cart.
+ * 
  * @author Kirin
  */
 public class CartSection extends javax.swing.JPanel {
-    
-    
 
     public CartSection() {
-        initComponents();
+        initComponents();  // Ensure that this method is called to initialize the components
+        setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));  // Initialize cartPanel
+        
     }
 
-   public void displayCartItems() {
-    List<FoodItem> cartItems = FoodStorage.getInstance().getFoodItems();
-    System.out.println("Items in the Cart:");
 
-    for (FoodItem item : cartItems) {
-        if (item.getUserQuantity() >= 1) {
-            System.out.println("Name: " + item.getName());
-            System.out.println("Quantity: " + item.getUserQuantity());
-            System.out.println("Price: " + item.getPrice());
-            System.out.println("Description: " + item.getDescription());
-            System.out.println("Order ID: " + item.getOrderId());
-            System.out.println("---------------------");
+    public void displayCartItems(List<FoodItem> cartItems) {
+        // Update the logic to display all items in cartItems
+        removeAll(); // Clear the existing items in CartSection
+        System.out.println("Items in the Cart:");
+
+        for (FoodItem item : cartItems) {
+            if (item.getUserQuantity() >= 1) {
+                // Debugging print statements
+                System.out.println("Name: " + item.getName());
+                System.out.println("Quantity: " + item.getUserQuantity());
+                System.out.println("Price: " + item.getPrice());
+                System.out.println("Description: " + item.getDescription());
+                System.out.println("Order ID: " + item.getOrderId());
+                System.out.println("---------------------");
+
+                // Create a JLabel with information and add it directly to CartSection
+                String labelText = "<html>Name: " + item.getName() + "<br>Quantity: " + item.getUserQuantity() +
+                                   "<br>Price: " + item.getPrice() + "<br>Description: " + item.getDescription() +
+                                   "<br>Order ID: " + item.getOrderId() + "</html>";
+
+                JLabel label = new JLabel(labelText);
+                add(label);
+            }
         }
+
+        // Refresh CartSection on the EDT
+        SwingUtilities.invokeLater(new Runnable() {
+            @Override
+            public void run() {
+                revalidate();
+                repaint();
+            }
+        });
+
+        // Debugging print statement
+        System.out.println("Displaying CartItems completed.");
     }
-}
+
+
 
 
     /**
@@ -53,41 +79,11 @@ public class CartSection extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel2 = new javax.swing.JPanel();
-
+        setBackground(new java.awt.Color(255, 204, 204));
         setPreferredSize(new java.awt.Dimension(1600, 900));
-
-        jPanel2.setPreferredSize(new java.awt.Dimension(1600, 900));
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1600, Short.MAX_VALUE)
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 900, Short.MAX_VALUE)
-        );
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-        );
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel jPanel2;
     // End of variables declaration//GEN-END:variables
 }

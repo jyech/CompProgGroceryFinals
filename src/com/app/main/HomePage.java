@@ -4,6 +4,7 @@
  */
 package com.app.main;
 
+import com.app.assets.OrderPanel;
 import com.app.details.FoodItem;
 import com.app.details.FoodStorage;
 import com.app.sections.ProduceSection;
@@ -260,10 +261,35 @@ public class HomePage extends javax.swing.JFrame {
         cardLayout.show(getContentPane(), "card2");
     }
     
+    private class AddToCartListener implements ActionListener {
+    private FoodItem foodItem;
+    private OrderPanel orderPanel;
+
+    public AddToCartListener(FoodItem foodItem, OrderPanel orderPanel) {
+        this.foodItem = foodItem;
+        this.orderPanel = orderPanel;
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        // Get the quantity from the OrderPanel
+        int quantity = orderPanel.getQuantity();
+
+        // Update the FoodItem with the obtained quantity
+        foodItem.setUserQuantity(quantity);
+
+        // Add the FoodItem to the cart
+        HomePage.this.addItemToCart(foodItem);  // Use HomePage.this to refer to the outer class method
+
+        // Print a message to confirm that the item has been added
+        System.out.println("Item added to cart: " + foodItem.getName());
+    }
+}
+    
     public void switchToCartSection() {
         CardLayout cardLayout = (CardLayout) getContentPane().getLayout();
         cardLayout.show(getContentPane(), "card8");  // Assuming "card8" is the identifier for the CartPage
-
+        cartSection.displayCartItems(cartItems);
 
     }
 
