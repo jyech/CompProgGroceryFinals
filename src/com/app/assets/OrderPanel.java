@@ -5,6 +5,7 @@
 package com.app.assets;
 
 import com.app.details.FoodItem;
+import com.app.details.FoodStorage;
 import com.app.transaction.CartSection;
 import com.app.transaction.OrderPanelListener;
 import java.awt.Color;
@@ -27,6 +28,8 @@ public class OrderPanel extends javax.swing.JPanel {
     private OrderPanelListener orderPanelListener;
     private CartSection cartSection;  // Reference to the CartSection
     private int quantity;
+    
+    
     /**
      * Creates new form OrderPanel
      */
@@ -34,10 +37,11 @@ public class OrderPanel extends javax.swing.JPanel {
         initComponents();
         
     }
-
+    
     public JButton getCartButton() {
     return CartButton;
 }
+
     /**
      * Set the listener for the OrderPanel.
      * 
@@ -55,32 +59,6 @@ public class OrderPanel extends javax.swing.JPanel {
     public void setCartSection(CartSection cartSection) {
         this.cartSection = cartSection;
     }
-
-    /**
-     * Handles the CartButton action performed event.
-     * Triggers the addition of the current item to the shopping cart.
-     * 
-     * @param evt The action event.
-     */
-    private void CartButtonActionPerformed(java.awt.event.ActionEvent evt) {
-    if (orderPanelListener != null) {
-        orderPanelListener.onAddToCart(orderId);
-
-        // Create a FoodItem instance from the OrderPanel and add it to the CartSection
-        if (cartSection != null) {
-            FoodItem foodItem = new FoodItem(orderId, FoodName.getText(),
-                    (ImageIcon) OrderImage.getIcon(),
-                    Double.parseDouble(FoodPrice.getText().replace("PHP ", "")),
-                    FoodDescription.getText());
-
-            // Set the quantity based on the displayed value in the Quantity label
-            foodItem.setUserQuantity(Integer.parseInt(Quantity.getText()));
-
-            cartSection.addItemToCart(foodItem);
-        }
-    }
-}
-
 
     public void setQuantity(int quantity) {
         this.quantity = quantity;
@@ -134,7 +112,6 @@ public class OrderPanel extends javax.swing.JPanel {
         MinusButton = new com.app.assets.ColoredButton();
         plusButton = new com.app.assets.ColoredButton();
         Quantity = new javax.swing.JLabel();
-        CheckoutButton = new com.app.assets.ColoredButton();
         CartButton = new com.app.assets.ColoredButton();
 
         setPreferredSize(new java.awt.Dimension(410, 280));
@@ -180,8 +157,6 @@ public class OrderPanel extends javax.swing.JPanel {
         Quantity.setText("1");
         Quantity.setOpaque(true);
 
-        CheckoutButton.setText("CHECKOUT");
-
         CartButton.setText("CART");
 
         javax.swing.GroupLayout OrderPanelLayout = new javax.swing.GroupLayout(OrderPanel);
@@ -207,9 +182,7 @@ public class OrderPanel extends javax.swing.JPanel {
                                 .addComponent(plusButton, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, OrderPanelLayout.createSequentialGroup()
                         .addComponent(CartButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(CheckoutButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(15, 15, 15)))
+                        .addGap(112, 112, 112)))
                 .addContainerGap(141, Short.MAX_VALUE))
         );
         OrderPanelLayout.setVerticalGroup(
@@ -228,9 +201,7 @@ public class OrderPanel extends javax.swing.JPanel {
                     .addComponent(plusButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(Quantity, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(OrderPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(CheckoutButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(CartButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(CartButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(73, Short.MAX_VALUE))
         );
 
@@ -267,7 +238,6 @@ public class OrderPanel extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private com.app.assets.ColoredButton CartButton;
-    private com.app.assets.ColoredButton CheckoutButton;
     private javax.swing.JLabel FoodDescription;
     private javax.swing.JLabel FoodName;
     private javax.swing.JLabel FoodPrice;

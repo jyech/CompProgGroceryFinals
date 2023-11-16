@@ -5,7 +5,9 @@
 package com.app.main;
 
 import com.app.details.FoodItem;
+import com.app.details.FoodStorage;
 import com.app.sections.ProduceSection;
+import com.app.transaction.CartSection;
 import java.awt.BorderLayout;
 import java.awt.CardLayout;
 import java.awt.Component;
@@ -26,10 +28,11 @@ public class HomePage extends javax.swing.JFrame {
     
     
     private List<FoodItem> cartItems; 
+    private CartSection cartSection;
    
     public HomePage() {
         initComponents();
-        
+        cartSection = new CartSection();
         cartItems = new ArrayList<>();
         
         //BackButtons
@@ -42,12 +45,13 @@ public class HomePage extends javax.swing.JFrame {
         }
      };
         
-        CartButton.addActionListener(new ActionListener() {
+        GoToCartButton.addActionListener(new ActionListener() {
         @Override
         public void actionPerformed(ActionEvent e) {
             switchToCartSection();
         }
     });
+        
 
      ProduceBackButton.addActionListener(backButtonListener);
      BeverageBackButton.addActionListener(backButtonListener);
@@ -56,22 +60,14 @@ public class HomePage extends javax.swing.JFrame {
      SeafoodBackButton.addActionListener(backButtonListener);
     }
     
+    
+    
     public void addItemToCart(FoodItem foodItem) {
         cartItems.add(foodItem);
     }
+    
 
-    // Method to display the cart contents
-    public void displayCartContents() {
-        System.out.println("Cart Contents:");
 
-        for (FoodItem cartItem : cartItems) {
-            System.out.println("Order ID: " + cartItem.getOrderId());
-            System.out.println("Food Name: " + cartItem.getName());
-            System.out.println("Food Price: " + cartItem.getPrice());
-            System.out.println("Quantity: " + cartItem.getUserQuantity());
-            System.out.println("------------");
-        }
-    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -85,7 +81,7 @@ public class HomePage extends javax.swing.JFrame {
         CategoryPage = new javax.swing.JPanel();
         CategorySection = new com.app.sections.CategorySection();
         ProducePage = new javax.swing.JPanel();
-        CartButton = new com.app.assets.ColoredButton();
+        GoToCartButton = new com.app.assets.ColoredButton();
         ProduceBackButton = new com.app.assets.ColoredButton();
         ProduceSection = new com.app.sections.ProduceSection();
         BeveragePage = new javax.swing.JPanel();
@@ -101,7 +97,7 @@ public class HomePage extends javax.swing.JFrame {
         SeafoodBackButton = new com.app.assets.ColoredButton();
         SeafoodSection = new com.app.sections.SeafoodSection();
         CartPage = new javax.swing.JPanel();
-        cartSection1 = new com.app.transaction.CartSection();
+        CartMainPage = new com.app.transaction.CartSection();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -127,10 +123,10 @@ public class HomePage extends javax.swing.JFrame {
 
         ProducePage.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        CartButton.setText("C");
-        CartButton.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        CartButton.setRadius(100);
-        ProducePage.add(CartButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(1420, 40, 50, 50));
+        GoToCartButton.setText("C");
+        GoToCartButton.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        GoToCartButton.setRadius(100);
+        ProducePage.add(GoToCartButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(1420, 40, 50, 50));
 
         ProduceBackButton.setText("<-");
         ProduceBackButton.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
@@ -182,14 +178,16 @@ public class HomePage extends javax.swing.JFrame {
         CartPageLayout.setHorizontalGroup(
             CartPageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, CartPageLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(cartSection1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(CartMainPage, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         CartPageLayout.setVerticalGroup(
             CartPageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, CartPageLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(cartSection1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(CartPageLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(CartMainPage, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         getContentPane().add(CartPage, "card8");
@@ -263,21 +261,22 @@ public class HomePage extends javax.swing.JFrame {
     }
     
     public void switchToCartSection() {
-    CardLayout cardLayout = (CardLayout) getContentPane().getLayout();
-    cardLayout.show(getContentPane(), "card8");
-    
-    // Display the cart contents when switching to the cart section
-    displayCartContents();
-}
+        CardLayout cardLayout = (CardLayout) getContentPane().getLayout();
+        cardLayout.show(getContentPane(), "card8");  // Assuming "card8" is the identifier for the CartPage
+
+
+    }
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private com.app.assets.ColoredButton BeverageBackButton;
     private javax.swing.JPanel BeveragePage;
     private com.app.sections.BeverageSection BeverageSection;
-    private com.app.assets.ColoredButton CartButton;
+    private com.app.transaction.CartSection CartMainPage;
     private javax.swing.JPanel CartPage;
     private javax.swing.JPanel CategoryPage;
     private com.app.sections.CategorySection CategorySection;
+    private com.app.assets.ColoredButton GoToCartButton;
     private com.app.assets.ColoredButton MeatBackButton;
     private javax.swing.JPanel MeatPage;
     private com.app.sections.MeatSection MeatSection;
@@ -290,6 +289,5 @@ public class HomePage extends javax.swing.JFrame {
     private com.app.assets.ColoredButton SnackBackButton;
     private javax.swing.JPanel SnackPage;
     private com.app.sections.SnackSection SnackSection;
-    private com.app.transaction.CartSection cartSection1;
     // End of variables declaration//GEN-END:variables
 }

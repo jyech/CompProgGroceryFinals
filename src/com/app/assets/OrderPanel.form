@@ -93,9 +93,7 @@
                           </Group>
                           <Group type="102" alignment="1" attributes="0">
                               <Component id="CartButton" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="CheckoutButton" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="112" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace pref="141" max="32767" attributes="0"/>
@@ -119,10 +117,7 @@
                           <Component id="Quantity" alignment="3" min="-2" pref="24" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="CheckoutButton" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="CartButton" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
+                      <Component id="CartButton" min="-2" max="-2" attributes="0"/>
                       <EmptySpace pref="73" max="32767" attributes="0"/>
                   </Group>
               </Group>
@@ -185,11 +180,6 @@
                 <Property name="horizontalAlignment" type="int" value="0"/>
                 <Property name="text" type="java.lang.String" value="1"/>
                 <Property name="opaque" type="boolean" value="true"/>
-              </Properties>
-            </Component>
-            <Component class="com.app.assets.ColoredButton" name="CheckoutButton">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="CHECKOUT"/>
               </Properties>
             </Component>
             <Component class="com.app.assets.ColoredButton" name="CartButton">
